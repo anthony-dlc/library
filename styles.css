@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+body {
+  padding: 16px;
+}
+
+h1 {
+  background-color: aqua;
+  text-align: center;
+}
+
+.call-form {
+  display: block;
+  margin: 16px auto;
+  background-color: lightgoldenrodyellow;
+  padding: 8px 24px;
+  border-radius: 8px;
+  border: none;
+}
+
+.books-container {
+  background-color: lightcoral;
+}
+
+.form-container {
+  background-color: lightgoldenrodyellow;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  /* display: flex; */
+  display: none;
+}
+
+form {
+  background-color: lightgreen;
+  padding: 32px 16px;
+  width: 300px;
+  margin: auto;
+  position: relative;
+  border-radius: 8px;
+}
+
+.close-form {
+  fill: red;
+  width: 24px;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}
+
+form h2 {
+  background-color: lightgoldenrodyellow;
+  padding: 8px 0;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.book-info {
+  background-color: lightpink;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+}
+
+.book-info input {
+  padding: 6px;
+  border: none;
+  margin-top: 2px;
+  border-radius: 4px;
+}
+
+form fieldset {
+  background-color: lightblue;
+  margin-top: 8px;
+  padding: 16px 0;
+  display: flex;
+  justify-content: space-around;
+  border: none;
+}
+
+form legend {
+  background-color: lightcoral;
+}
+
+.add-book {
+  background-color: lightskyblue;
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+}
+
+button,
+svg {
+  transition: transform 0.3s ease-in;
+}
+
+button:hover,
+svg:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+}
