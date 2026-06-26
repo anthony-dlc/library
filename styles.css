@@ -25,22 +25,52 @@ h1 {
 
 .books-container {
   background-color: lightcoral;
+  display: grid;
+  justify-items: center;
 }
 
-.books-container ul {
-  width: 450px;
-  background-color: lightgoldenrodyellow;
-  margin: auto;
-  padding: 8px;
-}
-ul,
-li {
-  list-style: none;
-  padding: 4px;
-}
-
-li {
+table {
+  width: 650px;
   background-color: lightgreen;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  font-size: 1.1rem;
+}
+
+tr {
+  background-color: lightgreen;
+}
+
+.author-title {
+  width: 260px;
+
+}
+
+td,
+th {
+  padding: 8px 4px;
+  background-color: lightgoldenrodyellow;
+  border-bottom: 2px solid blue;
+}
+
+table button {
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: none;
+  background-color: aqua;
+}
+.pages,
+.status {
+  text-align: center;
+}
+
+.change-status,
+.eliminate {
+  display: block;
+  margin: auto;
 }
 
 .form-container {

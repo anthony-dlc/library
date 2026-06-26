@@ -11,9 +11,35 @@
     <h1>Your library</h1>
     <button type="button" class="call-form">Add New Book</button>
     <div class="books-container">
-      <ul class="list-of-books">
-        <li class="book">Hello</li>
+      <!-- <ul class="read-it">
+        <h2>Ready it</h2>
       </ul>
+      <ul class="not-read-it">
+        <h2>Not read it</h2>
+      </ul> -->
+
+      <table class="read-it">
+        <thead>
+          <tr>
+            <th>Title and Author</th>
+            <th>Pages</th>
+            <th>Status</th>
+            <th>Change Status</th>
+            <th>Eliminate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="author-title">Atomic Habits by James Clear</td>
+            <td class="pages">320</td>
+            <td class="status">Not read it</td>
+            <td>
+              <button type="button" class="change-status">Change Status</button>
+            </td>
+            <td><button type="button" class="eliminate">Eliminate</button></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <div class="form-container">
       <form action="#" method="#">

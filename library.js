@@ -6,7 +6,7 @@ const bookAuthor = document.querySelector("#book-author");
 const bookTitle = document.querySelector("#book-title");
 const bookPages = document.querySelector("#book-pages");
 const readItOrNot = document.querySelectorAll(".book-read");
-const listOfBooks = document.querySelector(".list-of-books");
+// const listOfBooksRead = document.querySelector(".read-it");
 
 const library = [];
 
@@ -67,9 +67,9 @@ function addNewBook() {
   library.push(newBook);
 }
 
-function showBook() {
-  const lastBook = library.at(-1);
-  const listedBook = document.createElement("li");
-  listedBook.textContent = `${lastBook.title} by ${lastBook.author}, ${lastBook.pages} pages`;
-  listOfBooks.appendChild(listedBook);
-}
+// function showBook() {
+//   const lastBook = library.at(-1);
+//   const listedBook = document.createElement("li");
+//   listedBook.textContent = `${lastBook.title} by ${lastBook.author}, ${lastBook.pages} pages`;
+//   listOfBooksRead.appendChild(listedBook);
+// }
