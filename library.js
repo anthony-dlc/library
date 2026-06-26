@@ -1,7 +1,7 @@
 const openForm = document.querySelector(".call-form");
 const formContainer = document.querySelector(".form-container");
 const closeF = document.querySelector(".close-form");
-const addBook = document.querySelector(".add-book");
+const buttonAddBook = document.querySelector(".add-book");
 const bookAuthor = document.querySelector("#book-author");
 const bookTitle = document.querySelector("#book-title");
 const bookPages = document.querySelector("#book-pages");
@@ -11,6 +11,12 @@ const library = [];
 
 function closeForm() {
   formContainer.style.display = "none";
+}
+
+function clearCampus() {
+  bookAuthor.value = "";
+  bookTitle.value = "";
+  bookPages.value = "";
 }
 
 function Book(author, title, pages, readIt, id) {
@@ -36,10 +42,6 @@ function addNewBook() {
   library.push(newBook);
 }
 
-// const AtomicHabist = new Book("James Clear", "Atomic Habits", 320, "yes");
-
-// const doIt = new Book("Anthony de la cruz", "Do it", 300, "yes");
-
 openForm.addEventListener("click", () => {
   formContainer.style.display = "flex";
 });
@@ -48,8 +50,17 @@ closeF.addEventListener("click", () => {
   closeForm();
 });
 
-addBook.addEventListener("click", () => {
-  addNewBook();
-  console.log(library);
-  // closeForm();
+buttonAddBook.addEventListener("click", () => {
+  if (
+    bookAuthor.value.trim() !== "" &&
+    bookTitle.value.trim() !== "" &&
+    bookPages.value.trim() !== ""
+  ) {
+    addNewBook();
+    alert(`${bookTitle.value} successfully added`);
+    clearCampus();
+    console.log(library.at(-1));
+  } else {
+    alert("Fill all campus");
+  }
 });
