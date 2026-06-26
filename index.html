@@ -10,7 +10,11 @@
   <body>
     <h1>Your library</h1>
     <button type="button" class="call-form">Add New Book</button>
-    <div class="books-container"></div>
+    <div class="books-container">
+      <ul>
+        <li class="book">Hello</li>
+      </ul>
+    </div>
     <div class="form-container">
       <form action="#" method="#">
         <svg
@@ -58,11 +62,24 @@
           <legend>Did you read the book?</legend>
           <label for="yes">
             Yes, I did
-            <input type="radio" name="book-read" id="yes" value="yes" checked />
+            <input
+              type="radio"
+              name="book-read"
+              class="book-read"
+              id="yes"
+              value="yes"
+              checked
+            />
           </label>
           <label for="no">
             No, I didn't
-            <input type="radio" name="book-read" id="no" value="no" />
+            <input
+              type="radio"
+              name="book-read"
+              class="book-read"
+              id="no"
+              value="no"
+            />
           </label>
         </fieldset>
         <button type="button" class="add-book">Add Book</button>

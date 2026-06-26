@@ -27,6 +27,22 @@ h1 {
   background-color: lightcoral;
 }
 
+.books-container ul {
+  width: 450px;
+  background-color: lightgoldenrodyellow;
+  margin: auto;
+  padding: 8px;
+}
+ul,
+li {
+  list-style: none;
+  padding: 4px;
+}
+
+li {
+  background-color: lightgreen;
+}
+
 .form-container {
   background-color: lightgoldenrodyellow;
   position: absolute;
@@ -36,6 +52,7 @@ h1 {
   bottom: 0;
   /* display: flex; */
   display: none;
+  overflow-y: scroll;
 }
 
 form {
