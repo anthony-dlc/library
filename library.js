@@ -8,13 +8,12 @@ const bookPages = document.querySelector("#book-pages");
 const readItOrNot = document.querySelectorAll(".book-read");
 const tableOfBooks = document.querySelector(".read-it");
 const tablesBody = document.querySelector("tbody");
-// const changeStatus = document.querySelectorAll(".change-status");
 const tableRow = document.querySelector(".book-details");
 const tableData = document.querySelectorAll("td");
 
 const library = [];
 
-function Book(author, title, pages, readIt, id) {
+function Book(author, title, pages, readIt) {
   ((this.author = author),
     (this.title = title),
     (this.pages = pages),
@@ -40,7 +39,6 @@ buttonAddBook.addEventListener("click", () => {
     alert(`${bookTitle.value} was successfully added`);
     clearCampus();
     showBook();
-    console.log(library.at(-1));
   } else {
     alert("Fill all campus");
   }
@@ -69,6 +67,38 @@ function addNewBook() {
 
   const newBook = new Book(author, title, pages, read);
   library.push(newBook);
+}
+
+function eliminateBookFromLibrary(btn) {
+  btn.addEventListener("click", () => {
+    const bookDisplayContainer = btn.closest("tr");
+    const bookIndex = library.findIndex(
+      (book) => book.id === bookDisplayContainer.id,
+    );
+    const hasIt = library.find((book) => book.id === bookDisplayContainer.id);
+
+    if (hasIt) {
+      library.splice(bookIndex, 1);
+      bookDisplayContainer.remove();
+    }
+  });
+}
+
+function changeBookStatus(btn, state) {
+  btn.addEventListener("click", () => {
+    const bookDisplayContainer = btn.closest("tr");
+    const bookFound = library.find(
+      (book) => book.id === bookDisplayContainer.id,
+    );
+    if (bookFound.readIt === "yes") {
+      bookFound.readIt = "no";
+      state.textContent = bookFound.readIt;
+    } else {
+      bookFound.readIt = "yes";
+      state.textContent = bookFound.readIt;
+    }
+    console.log(bookFound.id);
+  });
 }
 
 function showBook() {
@@ -111,18 +141,6 @@ function showBook() {
 
   tableOfBooks.appendChild(tablesBody);
 
-  changeStatus.addEventListener("click", () => {
-    const parentInfo = changeStatus.closest("tr");
-    library.forEach((el) => {
-      if (parentInfo.id === el.id) {
-        if (el.readIt === "yes") {
-          el.readIt = "no";
-          status.textContent = el.readIt;
-        } else {
-          el.readIt = "yes";
-          status.textContent = el.readIt;
-        }
-      }
-    });
-  });
+  changeBookStatus(changeStatusButton, status);
+  eliminateBookFromLibrary(eliminateBookButton);
 }
