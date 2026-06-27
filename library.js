@@ -6,7 +6,8 @@ const bookAuthor = document.querySelector("#book-author");
 const bookTitle = document.querySelector("#book-title");
 const bookPages = document.querySelector("#book-pages");
 const readItOrNot = document.querySelectorAll(".book-read");
-// const listOfBooksRead = document.querySelector(".read-it");
+const tableOfBooks = document.querySelector(".read-it");
+const tablesBody = document.querySelector("tbody");
 
 const library = [];
 
@@ -33,7 +34,7 @@ buttonAddBook.addEventListener("click", () => {
     bookPages.value.trim() !== ""
   ) {
     addNewBook();
-    alert(`${bookTitle.value} successfully added`);
+    alert(`${bookTitle.value} was successfully added`);
     clearCampus();
     showBook();
     console.log(library.at(-1));
@@ -67,9 +68,40 @@ function addNewBook() {
   library.push(newBook);
 }
 
-// function showBook() {
-//   const lastBook = library.at(-1);
-//   const listedBook = document.createElement("li");
-//   listedBook.textContent = `${lastBook.title} by ${lastBook.author}, ${lastBook.pages} pages`;
-//   listOfBooksRead.appendChild(listedBook);
-// }
+function showBook() {
+  const lastBook = library.at(-1);
+  
+  const bookDescription = document.createElement("tr");
+  const authorAndTitle = document.createElement("td");
+  const numberOfPages = document.createElement("td");
+  const status = document.createElement("td");
+  const changeStatus = document.createElement("td");
+  const eliminateBook = document.createElement("td");
+  const changeStatusButton = document.createElement("button");
+  const eliminateBookButton = document.createElement("button");
+
+  authorAndTitle.classList.add("author-title");
+  numberOfPages.classList.add("pages");
+  status.classList.add("status");
+  changeStatusButton.classList.add("change-status");
+  eliminateBookButton.classList.add("eliminate");
+
+  authorAndTitle.textContent = `${lastBook.title} by ${lastBook.author}`;
+  numberOfPages.textContent = `${lastBook.pages}`;
+  status.textContent = `${lastBook.readIt}`;
+  changeStatusButton.textContent = "Change Status";
+  eliminateBookButton.textContent = "Eliminate";
+
+  changeStatus.appendChild(changeStatusButton);
+  eliminateBook.appendChild(eliminateBookButton);
+
+  bookDescription.appendChild(authorAndTitle);
+  bookDescription.appendChild(numberOfPages);
+  bookDescription.appendChild(status);
+  bookDescription.appendChild(changeStatus);
+  bookDescription.appendChild(eliminateBook);
+
+  tablesBody.appendChild(bookDescription);
+
+  tableOfBooks.appendChild(tablesBody);
+}
