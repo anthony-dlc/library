@@ -8,6 +8,9 @@ const bookPages = document.querySelector("#book-pages");
 const readItOrNot = document.querySelectorAll(".book-read");
 const tableOfBooks = document.querySelector(".read-it");
 const tablesBody = document.querySelector("tbody");
+// const changeStatus = document.querySelectorAll(".change-status");
+const tableRow = document.querySelector(".book-details");
+const tableData = document.querySelectorAll("td");
 
 const library = [];
 
@@ -70,7 +73,7 @@ function addNewBook() {
 
 function showBook() {
   const lastBook = library.at(-1);
-  
+
   const bookDescription = document.createElement("tr");
   const authorAndTitle = document.createElement("td");
   const numberOfPages = document.createElement("td");
@@ -80,6 +83,9 @@ function showBook() {
   const changeStatusButton = document.createElement("button");
   const eliminateBookButton = document.createElement("button");
 
+  bookDescription.style.display = "table-row";
+
+  bookDescription.id = `${lastBook.id}`;
   authorAndTitle.classList.add("author-title");
   numberOfPages.classList.add("pages");
   status.classList.add("status");
@@ -104,4 +110,19 @@ function showBook() {
   tablesBody.appendChild(bookDescription);
 
   tableOfBooks.appendChild(tablesBody);
+
+  changeStatus.addEventListener("click", () => {
+    const parentInfo = changeStatus.closest("tr");
+    library.forEach((el) => {
+      if (parentInfo.id === el.id) {
+        if (el.readIt === "yes") {
+          el.readIt = "no";
+          status.textContent = el.readIt;
+        } else {
+          el.readIt = "yes";
+          status.textContent = el.readIt;
+        }
+      }
+    });
+  });
 }

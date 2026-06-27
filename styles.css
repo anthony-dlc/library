@@ -40,13 +40,14 @@ thead {
   font-size: 1.1rem;
 }
 
-tr {
+.book-details {
   background-color: lightgreen;
+  display: none;
+  display: tba;
 }
 
 .author-title {
   width: 260px;
-
 }
 
 td,
