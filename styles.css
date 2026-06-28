@@ -1,3 +1,10 @@
+:root {
+  --bg-color: #fffaf2;
+  --text-color: #321806;
+  --btn-color: #ffe62b;
+  --shadow: 0 0 30px 1px #0000001f;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,43 +14,52 @@
 
 body {
   padding: 16px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 h1 {
-  background-color: aqua;
   text-align: center;
 }
 
 .call-form {
   display: block;
   margin: 16px auto;
-  background-color: lightgoldenrodyellow;
+  background-color: var(--btn-color);
   padding: 8px 24px;
   border-radius: 8px;
   border: none;
+  box-shadow: var(--shadow);
 }
 
 .books-container {
-  background-color: lightcoral;
   display: grid;
   justify-items: center;
 }
 
+.table-container {
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: var(--shadow);
+  border-radius: 8px;
+}
+
 table {
+  background-color: var(--bg-color);
+  color: var(--text-color);
   width: 650px;
-  background-color: lightgreen;
+  padding: 16px;
 }
 
 thead {
   position: sticky;
+  background-color: var(--bg-color);
   top: 0;
   font-size: 1.1rem;
 }
 
 .book-details {
-  background-color: lightgreen;
   display: none;
-  display: tba;
 }
 
 .author-title {
@@ -53,16 +69,16 @@ thead {
 td,
 th {
   padding: 8px 4px;
-  background-color: lightgoldenrodyellow;
-  border-bottom: 2px solid blue;
+  border-bottom: 2px solid var(--btn-color);
 }
 
 table button {
   padding: 4px 8px;
   border-radius: 4px;
   border: none;
-  background-color: aqua;
+  background-color: var(--btn-color);
 }
+
 .pages,
 .status {
   text-align: center;
@@ -75,19 +91,18 @@ table button {
 }
 
 .form-container {
-  background-color: lightgoldenrodyellow;
+  background-color: #00000091;
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
-  /* display: flex; */
-  display: none;
-  overflow-y: scroll;
+  /* display: none; */
+  overflow-y: auto;
 }
 
 form {
-  background-color: lightgreen;
+  background-color: var(--bg-color);
   padding: 32px 16px;
   width: 300px;
   margin: auto;
@@ -104,14 +119,12 @@ form {
 }
 
 form h2 {
-  background-color: lightgoldenrodyellow;
   padding: 8px 0;
   text-align: center;
   font-size: 1.2rem;
 }
 
 .book-info {
-  background-color: lightpink;
   display: flex;
   flex-direction: column;
   padding: 8px 0;
@@ -119,13 +132,14 @@ form h2 {
 
 .book-info input {
   padding: 6px;
-  border: none;
+  border: 1px solid transparent;
   margin-top: 2px;
-  border-radius: 4px;
+  border-radius: 9px;
+  box-shadow: var(--shadow);
+  outline-color: var(--btn-color);
 }
 
 form fieldset {
-  background-color: lightblue;
   margin-top: 8px;
   padding: 16px 0;
   display: flex;
@@ -133,27 +147,37 @@ form fieldset {
   border: none;
 }
 
-form legend {
-  background-color: lightcoral;
-}
-
 .add-book {
-  background-color: lightskyblue;
+  background-color: var(--btn-color);
+  color: var(--text-color);
   width: 100%;
   margin-top: 8px;
   padding: 8px;
   border-radius: 8px;
   border: none;
   font-weight: bold;
+  box-shadow: var(--shadow);
 }
 
 button,
 svg {
-  transition: transform 0.3s ease-in;
+  transition: transform 0.2s ease-in-out;
 }
 
 button:hover,
 svg:hover {
   cursor: pointer;
   transform: scale(1.03);
+}
+
+input[type="checkbox"] {
+  background-color: var(--btn-color);
+}
+
+input:user-invalid {
+  border-color: red;
+}
+
+input:user-valid {
+  border-color: green;
 }

@@ -101,6 +101,15 @@ function changeBookStatus(btn, state) {
   });
 }
 
+function addClassAndTextContent(el, className, text) {
+  el.classList.add(`${className}`);
+  el.textContent = `${text}`;
+}
+
+function appendingChild(fatherName, sonName) {
+  fatherName.append(sonName);
+}
+
 function showBook() {
   const lastBook = library.at(-1);
 
@@ -116,30 +125,27 @@ function showBook() {
   bookDescription.style.display = "table-row";
 
   bookDescription.id = `${lastBook.id}`;
-  authorAndTitle.classList.add("author-title");
-  numberOfPages.classList.add("pages");
-  status.classList.add("status");
-  changeStatusButton.classList.add("change-status");
-  eliminateBookButton.classList.add("eliminate");
 
-  authorAndTitle.textContent = `${lastBook.title} by ${lastBook.author}`;
-  numberOfPages.textContent = `${lastBook.pages}`;
-  status.textContent = `${lastBook.readIt}`;
-  changeStatusButton.textContent = "Change Status";
-  eliminateBookButton.textContent = "Eliminate";
+  addClassAndTextContent(
+    authorAndTitle,
+    "author-title",
+    `${lastBook.title} by ${lastBook.author}`,
+  );
+  addClassAndTextContent(numberOfPages, "pages", `${lastBook.pages}`);
+  addClassAndTextContent(status, "status", `${lastBook.readIt}`);
+  addClassAndTextContent(changeStatusButton, "change-status", "Change Status");
+  addClassAndTextContent(eliminateBookButton, "eliminate", "Eliminate");
 
-  changeStatus.appendChild(changeStatusButton);
-  eliminateBook.appendChild(eliminateBookButton);
+  appendingChild(changeStatus, changeStatusButton);
+  appendingChild(eliminateBook,eliminateBookButton);
+  appendingChild(bookDescription, authorAndTitle);
+  appendingChild(bookDescription,numberOfPages);
+  appendingChild(bookDescription,status);
+  appendingChild(bookDescription, changeStatus);
+  appendingChild(bookDescription,eliminateBook);
+  appendingChild(tablesBody,bookDescription);
+  appendingChild(tableOfBooks, tablesBody);
 
-  bookDescription.appendChild(authorAndTitle);
-  bookDescription.appendChild(numberOfPages);
-  bookDescription.appendChild(status);
-  bookDescription.appendChild(changeStatus);
-  bookDescription.appendChild(eliminateBook);
-
-  tablesBody.appendChild(bookDescription);
-
-  tableOfBooks.appendChild(tablesBody);
 
   changeBookStatus(changeStatusButton, status);
   eliminateBookFromLibrary(eliminateBookButton);
