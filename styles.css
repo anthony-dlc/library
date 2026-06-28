@@ -158,6 +158,9 @@ form fieldset {
   font-weight: bold;
   box-shadow: var(--shadow);
 }
+button {
+  color: var(--text-color);
+}
 
 button,
 svg {
