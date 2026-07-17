@@ -120,7 +120,6 @@ const displayControls = (() => {
       );
       library.splice(bookIndex, 1);
       bookCard.remove();
-      console.log(library);
     });
 
     btnChangeStatus.addEventListener("click", () => {
